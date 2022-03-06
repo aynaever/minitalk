@@ -6,7 +6,7 @@
 #    By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/04 11:41:04 by anaouadi          #+#    #+#              #
-#    Updated: 2022/03/04 12:30:52 by anaouadi         ###   ########.fr        #
+#    Updated: 2022/03/06 12:26:32 by anaouadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 FLAGS = -Wall -Werror -Wextra
 SOURCE = server.c
 
-all: $(SNAME)
+all: $(SNAME) $(NAME)
 
 $(NAME): client.o
 	$(CC) $(FLAGS) $^ -c $@

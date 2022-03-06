@@ -1,0 +1,100 @@
+1- signal : -> the function signal take two args, the first sig (signal) and the second one is the address of the function to be run when the signal is received, and this function is called the signal hanlder or the handle function, we will need this in the server because it receives the signals.
+
+2- sigaction : -> the function sigaction does the same thing as signal, takes a signal and change the action to do when it's received and the difference between signal and sigaction is the last one more portable and has more features, we will need this in the server because it receives the signals.
+
+3- kill : -> the function kill sends a specified signal to a process, it takes two args pid (process id) and a signal that will send, we will need this function in the client and the server, because the client sends signals as bits of characters and server send a signal back to confirm that it receives a signal.
+
+4- getpid : -> the function getpid returns a process id of the current process we will need this function in the server.
+
+5- exit : -> the function exit terminate the callling process we will need this function in the server when it receives all the characters in the string.
+
+6- sleep : -> the function sleep sleeps for a specified number of seconds, we will need this function in the server.
+
+7- sigemtpyset : -> the function sigemptyset initializes the signal set given by set to empty.
+
+8- sigaddset : -> the function sigaddset add respectively signal signum to set.
+
+9- usleep : -> the function usleep suspend execution for microsenconds intervals, we will need this function in the server.
+
+10- the size of unicode characters, it differs, from one to other, some are 4 bytes, and others are 3 and others are just 2.
+
+-> We should create a communication program in form of a client and server.
+
+-> The server must be launched first, and after being launched it must display its PID.
+
+-> The client will take as parameters: The server PID, The string that should be sent.
+
+-> The client must commumicate the string passed as a parameter to the server. Once the string has been received, the server must display it.
+
+-> Communicate between your programs should ONLY be done using UNIX signals.
+
+-> Your server should be able to receive strings from several clients in a row, without needing to be restarted.
+
+-> You can only use the two signals SIGUSER1 and SIGUSER2.
+
+-> The server confirms every signal received by sending a signal to the client.
+
+-> Support Unicode characters.
+
+-> Bit Masking : Masking means to keep/change/remove/ a desired part of information.
+
+-> Set Bit : we will use this mask (1 << i) while i is the position of the bit we want to set. and then we do this operation (num | mask).
+
+-> Clear Bit :
+
+-> Get Bit : we will use this mask (1 << i) while i is the position of the bit we want to get. and then we do this operation (num & mask).
+
+>> Functions to create:
+
+	1- send_string: takes a string and pid as arguments and sends sets of bits that present this string to the process that has the pid.
+
+	2- send_char: takes a char and pid as arguments and sends set of bits that present this char to the process that has the pid.
+
+	3- get_bit: takes a position as argument the position of the bit that you want to get and it returns 1 or 0.
+
+	4- clear_bit : takes a position as argument the position of the bit that you want to clear and it returns nothing.
+
+	5- set_bit : takes a position as argument the position of the bit that you want to set and it returns nothing.
+
+First things, we will send the pid (int) of the client to the server so I can send back a signal to confirm that a signal has been received.
+
+Second, I will send the length of the string that user enters and then send it to the server so I can allocate the needed memory for it, and start receiving signals and filling them in the string.
+
+Third, after I receive all signals and my string is finished I will print the string.
+
+--------- What to do ------------
+
+1- First I will send the length of the string and in the same time I increase the variable count when I receive each bit.
+
+2- Then, I will allocate the length needed of the string and I will start setting bits in the string.
+
+3- After I finish setting the bits I will print the string using ft_printf.
+
+--------- New Steps --------------
+
+1- Understand bit manipulation and be efficient with it:
+
+	-> set bit : we perform this using OR operator. (done)
+	-> get bit : we perform this using AND operator. (done)
+	-> toggle bit : we perform this using XOR operator. (done)
+	-> clear bit : we perform this using AND and NEGOTATION. (done)
+
+2- Understand Signals and be efficient with them:
+
+	-> sigaction (done)
+	-> sigemptyset (done)
+	-> sigaddset (done)
+	-> kill (done)
+	-> pause (done)
+	-> signal (done)
+	-> usleep (done)
+	-> sleep (done)
+	-> getpid (done)
+	-> exit (done)
+
+3- Real Steps:
+	
+	-> send cpid ( sizeof(int) * 8 )
+	-> send len  ( sizeof(int) * 8 )
+	-> send str  ( strlen(str) * 8 )
+	-> allocate strlen(str) and bzero the str

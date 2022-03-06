@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 12:15:03 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/06 12:33:29 by anaouadi         ###   ########.fr       */
+/*   Created: 2022/03/04 11:38:33 by anaouadi          #+#    #+#             */
+/*   Updated: 2022/03/06 12:55:24 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	main(int argc, char **argv)
+typedef struct	s_info
 {
+	int	len;
 	int	cpid;
-	int	spid;
+	int	count;
+	char	*str;  
+} t_info;
 
-	cpid = getpid();
-	spid = atoi(argv[1]);
-	return (0);
-}
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+
+int	getBit(int num, int k);
+int	sendUchar(unsigned char c, pid_t pid);
+int	sendNum(int	num, pid_t pid);
+
+#endif
+
