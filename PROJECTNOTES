@@ -94,7 +94,9 @@ Third, after I receive all signals and my string is finished I will print the st
 
 3- Real Steps:
 	
-	-> send cpid ( sizeof(int) * 8 )
+	-> send cpid ( sizeof(int) * 8 ) (done)
 	-> send len  ( sizeof(int) * 8 )
-	-> send str  ( strlen(str) * 8 )
 	-> allocate strlen(str) and bzero the str
+	-> send str  ( strlen(str) * 8 )
+
+when you get problem sigusr1 defined signal user 1, from the server side, this is because the signals send while the server in the handle function and this don't recognise and don't call the handler because it's inside it, the solution is to have a while between each signal, the amount of time depends on how much the handler function take time.
