@@ -6,7 +6,7 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:15:03 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/10 13:27:21 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:48:57 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	main(int argc, char **argv)
 	int					cpid;
 
 	cpid = getpid();
-	g_info.spid = atoi(argv[1]);
-	g_info.len = strlen(argv[2]);
+	g_info.spid = ft_atoi(argv[1]);
+	g_info.len = ft_strlen(argv[2]);
 	g_info.i = 0;
 	g_info.j = 0;
 	g_info.str = (unsigned char *) argv[2];

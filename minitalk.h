@@ -6,7 +6,7 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:38:33 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/09 21:32:34 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:49:26 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ typedef struct s_info
 }	t_info;
 
 int				get_bit(unsigned char num, int k);
-void			send_uchar(unsigned char c, pid_t pid);
-void			send_num(int num, pid_t pid);
 unsigned char	set_bit_char(unsigned char num, int k);
 unsigned char	clear_bit_char(unsigned char num, int k);
-void			send_str(unsigned char	*str, pid_t pid);
+size_t			ft_strlen(const char *s);
+int				ft_atoi(const char *nptr);
 
 #endif
