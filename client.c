@@ -6,7 +6,7 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:15:03 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/10 13:04:44 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:06:26 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	handler(int sig, siginfo_t *info, void *context)
 	}
 	//ft_printf("received SIGUSR2\n");
 	//ft_printf("g_info.spid = %d \n", info->si_pid);
-	if (g_info.len - 1 == g_info.i)
+	if (g_info.len == g_info.i)
 		exit(0);
 	if (get_bit(g_info.str[g_info.i], g_info.j++) == 0)
 		kill(g_info.spid, SIGUSR1);
