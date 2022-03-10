@@ -94,9 +94,20 @@ Third, after I receive all signals and my string is finished I will print the st
 
 3- Real Steps:
 	
-	-> send cpid ( sizeof(int) * 8 ) (done)
-	-> send len  ( sizeof(int) * 8 )
-	-> allocate strlen(str) and bzero the str
-	-> send str  ( strlen(str) * 8 )
+	-> send cpid ( sizeof(int) * 8 ) (done) (we already have in sigaction features)
+	-> send len  ( sizeof(int) * 8 ) (don't need it anymore cz I send char by char)
+	-> allocate strlen(str) and bzero the str (don't need anymore dynamic allocation)
+	-> send str  ( strlen(str) * 8 ) (done)
+	-> code the confirmation system (working on it)
 
-when you get problem sigusr1 defined signal user 1, from the server side, this is because the signals send while the server in the handle function and this don't recognise and don't call the handler because it's inside it, the solution is to have a while between each signal, the amount of time depends on how much the handler function take time.
+when you get problem sigusr1 defined signal user 1, from the server side, this is because the signals send while the server in the handle function and this don't recognise and don't call the handler because it's inside it, the solution is to have a while between each signal, the amount of time depends on how much the handler function take time. ( wasn't the problem )
+
+I just found what was wrong with sigaction, is using global variables they weren't working with 
+sigaction and on the other they were working with signal not as I mentioned above, but it's still a
+problem using global variables with async funcions that are not safe for signals. (wasn't the problem)
+
+I used static variables as a solution instead of global variables. (didn't work with sigaction same thing with them)
+
+I upgraded the system and till now it's working, really weird programming hahahah
+
+I had issue because I swaped the args in kill, that's why the ack system didn't work, wtf!!

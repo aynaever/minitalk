@@ -6,7 +6,7 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:15:03 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/10 13:04:44 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/10 12:59:44 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	handler(int sig, siginfo_t *info, void *context)
 		g_info.i++;
 	}
 	//ft_printf("received SIGUSR2\n");
-	//ft_printf("g_info.spid = %d \n", info->si_pid);
+	ft_printf("g_info.spid = %d \n", info->si_pid);
 	if (g_info.len - 1 == g_info.i)
 		exit(0);
 	if (get_bit(g_info.str[g_info.i], g_info.j++) == 0)
@@ -31,7 +31,6 @@ void	handler(int sig, siginfo_t *info, void *context)
 		kill(g_info.spid, SIGUSR2);
 	(void)sig;
 	(void)context;
-	(void)info;
 }
 
 int	main(int argc, char **argv)
@@ -51,7 +50,7 @@ int	main(int argc, char **argv)
 	ft_printf("the SPID: %d \n", g_info.spid);
 	ft_printf("the len of the string: %d \n", g_info.len);
 	sigaction(SIGUSR2, &sa, NULL);
-	handler(0, NULL, NULL);
+	kill(g_info.spid, SIGUSR1);
 	while (1)
 		pause();
 	return (argc);
