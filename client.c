@@ -6,23 +6,21 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:15:03 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/10 13:06:26 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:27:21 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-t_info g_info;
+t_info	g_info;
 
-void	handler(int sig, siginfo_t *info, void *context)
+void	handler(int sig)
 {
 	if (g_info.j == 8)
 	{
 		g_info.j = 0;
 		g_info.i++;
 	}
-	//ft_printf("received SIGUSR2\n");
-	//ft_printf("g_info.spid = %d \n", info->si_pid);
 	if (g_info.len == g_info.i)
 		exit(0);
 	if (get_bit(g_info.str[g_info.i], g_info.j++) == 0)
@@ -30,8 +28,6 @@ void	handler(int sig, siginfo_t *info, void *context)
 	else
 		kill(g_info.spid, SIGUSR2);
 	(void)sig;
-	(void)context;
-	(void)info;
 }
 
 int	main(int argc, char **argv)
@@ -44,14 +40,13 @@ int	main(int argc, char **argv)
 	g_info.len = strlen(argv[2]);
 	g_info.i = 0;
 	g_info.j = 0;
-	g_info.str = (unsigned char*) argv[2];
-	sa.sa_sigaction = handler;
-	sa.sa_flags = SA_SIGINFO;
+	g_info.str = (unsigned char *) argv[2];
+	sa.sa_handler = handler;
 	ft_printf("the CPID: %d \n", cpid);
 	ft_printf("the SPID: %d \n", g_info.spid);
 	ft_printf("the len of the string: %d \n", g_info.len);
 	sigaction(SIGUSR2, &sa, NULL);
-	handler(0, NULL, NULL);
+	handler(0);
 	while (1)
 		pause();
 	return (argc);

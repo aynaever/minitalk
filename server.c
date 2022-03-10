@@ -6,13 +6,13 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:11:33 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/10 13:01:05 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:27:51 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	handler(int sig,siginfo_t *info, void *context)
+void	handler(int sig, siginfo_t *info, void *context)
 {
 	static unsigned char	temp;
 	static int				i;
@@ -29,7 +29,6 @@ void	handler(int sig,siginfo_t *info, void *context)
 		temp = '\0';
 	}
 	kill(info->si_pid, SIGUSR2);
-	//ft_printf("cpid = %d\n", info->si_pid);
 	(void)context;
 }
 
