@@ -6,7 +6,7 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:15:03 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/13 14:22:24 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/13 14:31:19 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ void	handler(int sig)
 int	main(int argc, char **argv)
 {
 	struct sigaction	sa;
-	int					cpid;
 
-	cpid = getpid();
+	if (argc < 3)
+	{
+		ft_printf("Enter Valid Arguments");
+		return (0);
+	}
 	g_info.spid = ft_atoi(argv[1]);
 	g_info.len = ft_strlen(argv[2]);
 	g_info.i = 0;
 	g_info.j = 0;
 	g_info.str = (unsigned char *) argv[2];
 	sa.sa_handler = handler;
-	ft_printf("the CPID: %d \n", cpid);
-	ft_printf("the SPID: %d \n", g_info.spid);
-	ft_printf("the len of the string: %d \n", g_info.len);
 	sigaction(SIGUSR2, &sa, NULL);
 	handler(0);
-	if (g_info.inv == 1 || argc != 3)
+	if (g_info.inv == 1)
 	{
 		ft_printf("Invalid PID or Empty Text!");
 		return (0);
