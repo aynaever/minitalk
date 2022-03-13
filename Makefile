@@ -6,7 +6,7 @@
 #    By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/04 11:41:04 by anaouadi          #+#    #+#              #
-#    Updated: 2022/03/10 14:55:18 by anaouadi         ###   ########.fr        #
+#    Updated: 2022/03/13 14:35:10 by anaouadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ clean :
 
 fclean : 
 	rm -rf $(CNAME) $(SNAME) *.o
+	make fclean -C ft_printf/
 
 bonus : $(SNAME) $(CNAME)
 
