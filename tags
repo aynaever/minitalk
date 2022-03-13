@@ -1,0 +1,27 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/me/Projects/level_2/minitalk_2/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+clear_bit_char	server_utils.c	/^unsigned char	clear_bit_char(unsigned char num, int k)$/;"	f	typeref:typename:unsigned char
+ft_atoi	client_utils.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
+ft_start	client_utils.c	/^int	ft_start(const char *s)$/;"	f	typeref:typename:int
+ft_strlen	client_utils.c	/^size_t	ft_strlen(const char *s)$/;"	f	typeref:typename:size_t
+g_info	client.c	/^t_info	g_info;$/;"	v	typeref:typename:t_info
+g_info	client_bonus.c	/^t_info	g_info;$/;"	v	typeref:typename:t_info
+get_bit	client_utils.c	/^int	get_bit(unsigned char num, int k)$/;"	f	typeref:typename:int
+handler	client.c	/^void	handler(int sig)$/;"	f	typeref:typename:void
+handler	client_bonus.c	/^void	handler(int sig)$/;"	f	typeref:typename:void
+handler	server.c	/^void	handler(int sig, siginfo_t *info, void *context)$/;"	f	typeref:typename:void
+handler	server_bonus.c	/^void	handler(int sig, siginfo_t *info, void *context)$/;"	f	typeref:typename:void
+main	client.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
+main	client_bonus.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
+main	server.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	server_bonus.c	/^int	main(void)$/;"	f	typeref:typename:int
+set_bit_char	server_utils.c	/^unsigned char	set_bit_char(unsigned char num, int k)$/;"	f	typeref:typename:unsigned char

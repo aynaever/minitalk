@@ -6,7 +6,7 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:15:03 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/10 13:48:57 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/13 14:05:17 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ int	main(int argc, char **argv)
 	struct sigaction	sa;
 	int					cpid;
 
+	if (argc != 3)
+	{
+		ft_printf("Please Enter Correct Arguments!");
+		return (0);
+	}
 	cpid = getpid();
 	g_info.spid = ft_atoi(argv[1]);
 	g_info.len = ft_strlen(argv[2]);
