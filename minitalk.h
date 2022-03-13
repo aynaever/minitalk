@@ -6,7 +6,7 @@
 /*   By: anaouadi <anaouadi@student.42wolfsbu       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:38:33 by anaouadi          #+#    #+#             */
-/*   Updated: 2022/03/10 13:49:26 by anaouadi         ###   ########.fr       */
+/*   Updated: 2022/03/13 14:18:11 by anaouadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_info
 	int				i;
 	int				j;
 	int				len;
+	int				inv;
 	unsigned char	*str;
 }	t_info;
 
